@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     pagespeed: {
       options: {
         nokey: true,
-        url: "http://test.frutigergroup.com/udacity/project4/index.html",
+        url: "https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/",
         locale: "en_US",
         threshold: 90
       },
