@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    /* Build */
+    // Build
 
     clean: {
       build: {
@@ -25,21 +25,6 @@ module.exports = function(grunt) {
           src: ['*.html'],
           dest: 'deploy/'
         }]
-      },
-      views: {
-        options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          removeComments: true,
-          minifyJS: true,
-          minifyCSS: true
-        },
-        files: [{
-          expand: true,
-          cwd: 'src/views/',
-          src: ['*.html'],
-          dest: 'deploy/views/'
-        }]
       }
     },
 
@@ -51,14 +36,6 @@ module.exports = function(grunt) {
           src: ['*.css'],
           dest: 'deploy/css/'
         }]
-      },
-      views: {
-        files: [{
-          expand: true,
-          cwd: 'src/views/css/',
-          src: ['*.css'],
-          dest: 'deploy/views/css/'
-        }]
       }
     },
 
@@ -69,14 +46,6 @@ module.exports = function(grunt) {
           cwd: 'src/img/',
           src: ['**/*.{png,jpg,gif,svg}'],
           dest: 'deploy/img/'
-        }]
-      },
-      views: {
-        files: [{
-          expand: true,
-          cwd: 'src/views/images/',
-          src: ['**/*.{png,jpg,gif,svg}'],
-          dest: 'deploy/views/images/'
         }]
       }
     },
@@ -97,14 +66,6 @@ module.exports = function(grunt) {
           src: ['**/*.js'],
           dest: 'deploy/js/'
         }]
-      },
-      views: {
-        files: [{
-          expand: true,
-          cwd: 'src/views/js/',
-          src: ['**/*.js'],
-          dest: 'deploy/views/js/'
-        }]
       }
     },
 
@@ -117,11 +78,19 @@ module.exports = function(grunt) {
           dest: 'deploy/',
           dot: true
         }]
+      },
+      views: {
+        files: [{
+          expand: true,
+          cwd: 'src/views',
+          src: ['**/*'],
+          dest: 'deploy/views'
+        }]
       }
     },
 
 
-    /* Testing */
+    // Testing
 
     jshint: {
       main: ['src/js/*.js']
