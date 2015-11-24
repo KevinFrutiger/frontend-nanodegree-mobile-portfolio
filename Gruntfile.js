@@ -125,6 +125,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-pagespeed');
 
-  grunt.registerTask('build', ['htmlmin', 'cssmin', 'imagemin', 'uglify', 'copy']);
+  grunt.registerTask('build', ['clean', 'htmlmin', 'cssmin', 'imagemin', 'uglify', 'copy']);
 
 };
