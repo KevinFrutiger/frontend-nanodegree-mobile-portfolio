@@ -93,7 +93,8 @@ module.exports = function(grunt) {
     // Testing
 
     jshint: {
-      main: ['src/js/*.js']
+      main: ['src/js/*.js'],
+      views: ['src/views/js/*.js']
     },
 
     pagespeed: {
@@ -125,6 +126,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-pagespeed');
 
-  grunt.registerTask('build', ['clean', 'htmlmin', 'cssmin', 'imagemin', 'uglify', 'copy']);
+  grunt.registerTask('build', ['clean', 'htmlmin', 'cssmin', 'imagemin', 'jshint', 'uglify', 'copy']);
 
 };
