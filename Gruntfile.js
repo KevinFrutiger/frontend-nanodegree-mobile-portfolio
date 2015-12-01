@@ -7,6 +7,9 @@ module.exports = function(grunt) {
     clean: {
       build: {
         src: ['deploy/*']
+      },
+      inlinedcss: { // Used to clean out stylesheets that are now in <style>
+        src: ['deploy/css/style.css']
       }
     },
 
@@ -35,6 +38,23 @@ module.exports = function(grunt) {
           cwd: 'src/css',
           src: ['*.css'],
           dest: 'deploy/css/'
+        }]
+      }
+    },
+
+    replace: {
+      dist: {
+        options: {
+          patterns: [{
+            match: /<link href=\"css\/style.css\" rel=\"stylesheet\">/g,
+            replacement: '<style>' + '<%= grunt.file.read("deploy/css/style.css") %>' + '</style>'
+          }]
+        },
+        files: [{
+          expand: true,
+          cwd: 'deploy/',
+          src: ['index.html'],
+          dest: 'deploy/'
         }]
       }
     },
@@ -79,6 +99,7 @@ module.exports = function(grunt) {
           dot: true
         }]
       },
+
       views: {
         files: [{
           expand: true,
@@ -125,7 +146,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-pagespeed');
+  grunt.loadNpmTasks('grunt-replace');
 
-  grunt.registerTask('build', ['clean', 'htmlmin', 'cssmin', 'imagemin', 'jshint', 'uglify', 'copy']);
+  // Note: Replace and clean:inlinecss act on the deploy folder.
+  grunt.registerTask('build', ['clean:build', 'htmlmin', 'cssmin', 'imagemin', 'jshint', 'uglify', 'copy', 'replace', 'clean:inlinedcss']);
 
 };
