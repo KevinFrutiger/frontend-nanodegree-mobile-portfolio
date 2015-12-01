@@ -530,8 +530,9 @@ function updatePositions() {
   var windowWidth = window.innerWidth;
 
   // OPTIMIZATION: Use getElementsByClassName which is just as clear and
-  // a little faster in the current browser. NOTE: Storing this in the global
-  // space actually made performance worse, so keeping it local.
+  // a little faster in the current browser (as noted in office hours video
+  // https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA).
+  // NOTE: Storing this in the global space actually made performance worse, so keeping it local.
   var items = document.getElementsByClassName('mover');
 
 
