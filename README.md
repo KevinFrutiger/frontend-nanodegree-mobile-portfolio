@@ -1,6 +1,6 @@
 # Website Performance Optimization portfolio project
 
-The object of this project was to 1) optimize the critical rendering path for the existing [main index.html](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) page and 2) optimize the browser rendering for the existing [Cam's Pizzeria page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html).
+The object of this project was to 1) optimize the critical rendering path for the existing [main index.html](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) page and 2) optimize the browser rendering for the existing [Cam's Pizzeria page](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html).
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ A Web browser.
 
 ### Running the Site
 
-Click [this link](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) to run the live site.
+Click [this link](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) to run the live site.
 
 You can run the files locally by doing the following:
 
@@ -20,11 +20,11 @@ You can run the files locally by doing the following:
 
 ## Part 1 - CRP Optimizations
 
-The [main page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) was optimized to achieve a PageSpeed Insights speed score of at least 90/100 for Mobile and Desktop. The current iteration achieves a 95/100 for Mobile and a 97/100 for Desktop running on GitHub Pages, and a 99/100 for Mobile running on a server that accepts .htaccess modifications for caching.
+The [main page](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) was optimized to achieve a PageSpeed Insights speed score of at least 90/100 for Mobile and Desktop. The current iteration achieves a 95/100 for Mobile and a 97/100 for Desktop running on GitHub Pages, and a 99/100 for Mobile running on a server that accepts .htaccess modifications for caching.
 
 ## Part 2 - Browser Rendering Optimization
 
-The goal was to optimize the [Cam's Pizzeria page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html) (views/pizza.html) to maintain 60 FPS or higher during scrolling of the page (as tested in Chrome DevTools) and to reduce the time for the pizza slider to resize the pizza in the pizza list to under 5ms.
+The goal was to optimize the [Cam's Pizzeria page](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html) (views/pizza.html) to maintain 60 FPS or higher during scrolling of the page (as tested in Chrome DevTools) and to reduce the time for the pizza slider to resize the pizza in the pizza list to under 5ms.
 
 ### Optimizations
 
