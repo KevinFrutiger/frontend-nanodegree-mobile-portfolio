@@ -20,9 +20,7 @@ You can run the files locally by doing the following:
 
 ## Part 1 - CRP Optimizations
 
-The [main page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) was optimized to achieve a PageSpeed Insights speed score of at least 90/100 for Mobile and Desktop. This current iteration achieves a 90/100 for Mobile and a 97/100 for Desktop.
-
-Note that the .htaccess found in the files has no affect when run on GitHub Pages, but does improve caching on other servers.
+The [main page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) was optimized to achieve a PageSpeed Insights speed score of at least 90/100 for Mobile and Desktop. The current iteration achieves a 95/100 for Mobile and a 97/100 for Desktop running on GitHub Pages, and a 99/100 for Mobile running on a server that accepts .htaccess modifications for caching.
 
 ## Part 2 - Browser Rendering Optimization
 
