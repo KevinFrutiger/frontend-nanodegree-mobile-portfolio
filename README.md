@@ -1,73 +1,53 @@
-## Website Performance Optimization portfolio project
+# Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+The object of this project was to 1) optimize the critical rendering path for the existing [main index.html](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) page and 2) optimized the browser rendering for the existing [Cam's Pizzeria page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html).
 
-To get started, check out the repository, inspect the code,
+## Getting Started
 
-### Getting started
+### What You'll Need
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+A Web browser.
 
-Some useful tips to help you get started:
+### Running the Site
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+Click [this link](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) to run the live site.
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+You can run the files locally by doing the following:
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
+1. Download the .zip file using the **Download ZIP** button located in the GitHub sidebar (or clone the repository).
+2. Unzip the file
+3. Point your browser to index.html in the **src** folder of the files that you just unzipped to run non-minified site. Pointer your browser to index.html in the deploy folder to run the same files found on the live site.
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
+## Part 1 - CRP Optimizations
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+The [main page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) was optimized to achieve a PageSpeed Insights speed score of at least 90/100 for Mobile and Desktop. This current iteration achieves a 90/100 for Mobile and a 97/100 for Desktop.
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+Note that the .htaccess found in the files has no affect when run on GitHub Pages, but does improve caching on other servers.
 
-####Part 2: Optimize Frames per Second in pizza.html
+## Part 2 - Browser rendering optimization
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+The goal was to optimize the [Cam's Pizzeria page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html) (views/pizza.html) to maintain 60 FPS or higher during scrolling of the page (as tested in Chrome DevTools) and to reduce the time for the pizza slider to resize the pizza in the pizza list to under 5ms.
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+### Optimizations
 
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
+Following is list of optimizations made (as required for the project) to views/pizza.html page (specifically to js/main.js in that same folder). These changes are all commented in the source code (src/) preceded with "OPTIMIZATION:".
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
+*changePizzaSlices* - This function updates the size of the pizza in the pizza list on change of the slider.
 
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+* Stored the results of document.querySelectorAll() so it doesn't have to be called in each iteration of the subsequent loop.
+* Moved setting of the style.width to a separate loop from the calulations using offsetWidth, to avoid layout thrashing.
 
-### Sample Portfolios
+*updatePositions* - This function updates the positioning of the pizzas in the background during scroll.
 
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
+* Replaced style.left with style.transform and used translate3d to simplify remove the need to do layout and paint for those elements
+* Removed pizzas that we never see from the Render Tree, and only calculated transforms for those we do see.
+* Moved a calculation using body.scrollTop out of a loop and used a var containing that value in the loop instead to avoid having to recalculate layout through each iteration.
+* Replaced use of querySelectorAll() with getElementsByClassName()
+* Replaced expression using modulo operator with a simple counter var
 
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
-* <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
-* <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
-* <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+*other changes*
+
+* stored a few location values in custom properties in the pizza elements, to avoid having to calculate layout to get them
+* created a new PNG for the background pizzas that matched the size at which they were being used
+
+
