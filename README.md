@@ -1,6 +1,6 @@
 # Website Performance Optimization portfolio project
 
-The object of this project was to 1) optimize the critical rendering path for the existing [main index.html](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) page and 2) optimize the browser rendering for the existing [Cam's Pizzeria page](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html).
+This was the fourth project in the _Front-End Web Developer Nanodegree_. The objective was to 1) optimize the critical rendering path for the existing [main index.html](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) page and 2) optimize the browser rendering for the existing [Cam's Pizzeria page](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html).
 
 ## Getting Started
 
@@ -10,25 +10,25 @@ A Web browser.
 
 ### Running the Site
 
-Click [this link](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) to run the live site.
+You can run the live site <a href="http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/">here</a>.
 
-You can run the files locally by doing the following:
+Alternatively, you can run the files locally by doing the following:
 
 1. Download the .zip file using the **Download ZIP** button located in the GitHub sidebar (or clone the repository).
 2. Unzip the file
-3. Point your browser to index.html in the **src** folder of the files that you just unzipped to run the non-minified files. Point your browser to index.html in the **deploy** folder to run the same files found on the live site.
+3. Point your browser to **index.html** in the **src** folder of the files that you just unzipped to run the non-minified files. Point your browser to **index.html** in the **deploy** folder to run the same files found on the live site.
 
-## Part 1 - CRP Optimizations
+## CRP Optimizations
 
 The [main page](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) was optimized to achieve a PageSpeed Insights speed score of at least 90/100 for Mobile and Desktop. The current iteration achieves a 95/100 for Mobile and a 97/100 for Desktop running on GitHub Pages, and a 99/100 for Mobile running on a server that accepts .htaccess modifications for caching.
 
-## Part 2 - Browser Rendering Optimization
+## Browser Rendering Optimizations
 
 The goal was to optimize the [Cam's Pizzeria page](http://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html) (views/pizza.html) to maintain 60 FPS or higher during scrolling of the page (as tested in Chrome DevTools) and to reduce the time for the pizza slider to resize the pizza in the pizza list to under 5ms.
 
 ### Optimizations
 
-Following is list (as required for the project) of optimizations made to views/pizza.html page—specifically to js/main.js in that same folder. These changes are all commented in the source code (src/) preceded with "OPTIMIZATION:".
+Following is a list (as required for the project) of optimizations made to **views/pizza.html**—specifically to js/main.js in that same folder. These changes are all commented in the source code (src/) preceded with "OPTIMIZATION:".
 
 *changePizzaSlices* - This function updates the size of the pizza in the pizza list on change of the slider.
 
