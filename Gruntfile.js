@@ -7,9 +7,6 @@ module.exports = function(grunt) {
     clean: {
       build: {
         src: ['deploy/*']
-      },
-      inlinedcss: { // Used to clean out stylesheets that are now in <style>
-        src: ['deploy/css/style.css']
       }
     },
 
@@ -149,6 +146,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-replace');
 
   // Note: Replace and clean:inlinecss act on the deploy folder.
-  grunt.registerTask('build', ['clean:build', 'htmlmin', 'cssmin', 'imagemin', 'jshint', 'uglify', 'copy', 'replace', 'clean:inlinedcss']);
+  grunt.registerTask('build', ['clean:build', 'htmlmin', 'cssmin', 'imagemin', 'jshint', 'uglify', 'copy', 'replace']);
 
 };
