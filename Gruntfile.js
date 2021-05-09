@@ -114,25 +114,6 @@ module.exports = function(grunt) {
       main: ['src/js/*.js'],
       views: ['src/views/js/*.js']
     },
-
-    pagespeed: {
-      options: {
-        nokey: true,
-        url: "https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/",
-        locale: "en_US",
-        threshold: 90
-      },
-      desktop: {
-        options: {
-          strategy: "desktop"
-        }
-      },
-      mobile: {
-        options: {
-          strategy: "mobile"
-        }
-      }
-    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -142,7 +123,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-pagespeed');
   grunt.loadNpmTasks('grunt-replace');
 
   // Note: Replace and clean:inlinecss act on the deploy folder.
