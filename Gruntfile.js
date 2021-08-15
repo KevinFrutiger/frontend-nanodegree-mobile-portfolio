@@ -56,16 +56,16 @@ module.exports = function(grunt) {
       }
     },
 
-    imagemin: {
-      main: {
-        files: [{
-          expand: true,
-          cwd: 'src/img/',
-          src: ['**/*.{png,jpg,gif,svg}'],
-          dest: 'deploy/img/'
-        }]
-      }
-    },
+    // imagemin: {
+    //   main: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'src/img/',
+    //       src: ['**/*.{png,jpg,gif,svg}'],
+    //       dest: 'deploy/img/'
+    //     }]
+    //   }
+    // },
 
     uglify: {
       options: {
@@ -97,6 +97,15 @@ module.exports = function(grunt) {
         }]
       },
 
+      images: {
+        files: [{
+          expand: true,
+          cwd: 'src/img/',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: 'deploy/img/'
+        }]
+      },
+
       views: {
         files: [{
           expand: true,
@@ -120,12 +129,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  //grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-replace');
 
-  // Note: Replace and clean:inlinecss act on the deploy folder.
-  grunt.registerTask('build', ['clean:build', 'htmlmin', 'cssmin', 'imagemin', 'jshint', 'uglify', 'copy', 'replace']);
+  // Note: "Replace" and "clean:inlinecss" act on the deploy folder.
+  //grunt.registerTask('build', ['clean:build', 'htmlmin', 'cssmin', 'imagemin', 'jshint', 'uglify', 'copy', 'replace']);
+  grunt.registerTask('build', ['clean:build', 'htmlmin', 'cssmin', 'jshint', 'uglify', 'copy', 'replace']);
 
 };

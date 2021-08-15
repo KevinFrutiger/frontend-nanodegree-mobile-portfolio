@@ -1,5 +1,7 @@
 # Website Performance Optimization portfolio project
 
+_This project has since been updated to remove grunt-contrib-imagemin due to security audits. A replacement was not implemented since this is an old project. I likely would implemented squoosh-cli via a Grunt task to replace the functionality._
+
 This was the fourth project in the _Front-End Web Developer Nanodegree_. The objective was to 1) optimize the critical rendering path for the existing [main index.html](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/) page and 2) optimize the browser rendering for the existing [Cam's Pizzeria page](https://kevinfrutiger.github.io/frontend-nanodegree-web-optimization/views/pizza.html).
 
 ## Getting Started
